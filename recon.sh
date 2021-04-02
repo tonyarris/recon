@@ -30,10 +30,6 @@ sort -u final.txt
 
 echo $1 >> final.txt
 
-#TODO fix amass hang
-#echo "${RED}Searching with amass enum...${NC}"
-#amass enum -d $1 >> final.txt
-#sort -u final.txt
 
 echo -e "${RED}Now with subfinder...${NC}"
 subfinder -d $1 >> final.txt
@@ -78,7 +74,3 @@ eyewitness -f $pwd/probed.txt -d $1 --prepend-https
 mv /usr/share/eyewitness/$1 eyewitness/$1
 
 echo "n"
-
-#TODO fix hang
-#echo -e "${RED}Bruteforcing weak, common and default creds...${NC}"
-#brutespray -f scans/scanned.txt.gnmap  -U /root/tools/SecLists/Usernames/top-usernames-shortlist.txt -P /root/tools/SecLists/Passwords/Common-Credentials/10k-most-common.txt --threads 5 --hosts 5 >> brutespray_output.txt
